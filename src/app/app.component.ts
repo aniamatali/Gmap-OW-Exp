@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Overwatch Team Tracker';
+  lat: number = 47.608013;
+  lng: number = -122.335167;
+
+  onChooseLocation(event) {
+    console.log(event);
+    this.lat = event.coords.lat;
+    this.lng = event.coords.lng;
+  }
 }

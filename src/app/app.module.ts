@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-
+import { CommonModule } from '@angular/common';
 import { routing } from './app.routing';
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './welcome/welcome.component';
@@ -20,6 +20,8 @@ import { EditUserComponent } from './edit-user/edit-user.component';
 import { PositionPipe } from './mainclass.pipe';
 import { RankPipe } from './skillrating.pipe';
 import { AvailabilityPipe } from './availability.pipe';
+
+import { AgmCoreModule } from '@agm/core';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -44,10 +46,14 @@ export const firebaseConfig = {
   imports: [
     BrowserModule,
     FormsModule,
+    CommonModule,
     HttpModule,
     routing,
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAs6XOMB0euPMFzMa7Xv4J_raugOWljqSE'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
